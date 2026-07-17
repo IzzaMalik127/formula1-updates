@@ -134,3 +134,9 @@
 @utility pulse-red {
   animation: pulseRed 2s infinite;
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
