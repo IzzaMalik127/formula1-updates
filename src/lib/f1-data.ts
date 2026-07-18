@@ -225,7 +225,7 @@ const COUNTRY_TO_CC: Record<string, string> = {
   UAE: "ae", Bahrain: "bh", "Saudi Arabia": "sa", Qatar: "qa",
   Japan: "jp", Australia: "au", China: "cn", Monaco: "mc", Spain: "es",
   Canada: "ca", Austria: "at", Belgium: "be", Netherlands: "nl", Italy: "it",
-  Azerbaijan: "az", Singapore: "sg", Mexico: "mx", Brazil: "br", "United States": "us",
+  Azerbaijan: "az", Singapore: "sg", Mexico: "mx", Brazil: "br",
   France: "fr", Hungary: "hu", Germany: "de", Turkey: "tr", Russia: "ru",
   Portugal: "pt", Switzerland: "ch", Malaysia: "my",
 };
