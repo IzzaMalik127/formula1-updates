@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Search, ChevronRight, Calendar, Clock, Ruler, RefreshCw, Timer, Trophy, Instagram, Youtube, Twitter, Music2, ArrowRight, Sun, Home as HomeIcon, Users, Flag as FlagIcon, MapPin, CalendarDays, Newspaper, BarChart3 } from "lucide-react";
 
-import heroCars from "@/assets/hero-cars.png.asset.json";
+import heroCars from "@/assets/hero-night.jpg.asset.json";
 import circuitBg from "@/assets/circuit-bg.png.asset.json";
+import f1LogoAsset from "@/assets/f1-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
