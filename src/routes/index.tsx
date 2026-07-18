@@ -176,11 +176,12 @@ function useLiveStandings() {
 function F1Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center ${className}`}>
-      <svg viewBox="0 0 100 40" className="h-7 w-auto" aria-label="F1">
-        <path d="M8 32 L20 8 L46 8 L44 14 L26 14 L22 22 L38 22 L36 28 L20 28 L18 32 Z" fill="#E10600"/>
-        <path d="M52 8 L64 8 L58 32 L46 32 Z" fill="#E10600"/>
-        <path d="M68 8 L96 8 L94 14 L74 14 L72 20 L88 20 L86 26 L70 26 L68 32 L56 32 Z" fill="#ffffff"/>
-      </svg>
+      <img
+        src={f1LogoAsset.url}
+        alt="Formula 1"
+        className="h-6 w-auto md:h-7 select-none"
+        draggable={false}
+      />
     </div>
   );
 }
