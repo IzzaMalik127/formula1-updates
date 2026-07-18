@@ -447,7 +447,7 @@ export async function fetchDriverStandings(signal?: AbortSignal): Promise<Driver
       posText: d.positionText,
       driverId: d.Driver.driverId,
       code: d.Driver.code,
-      number: info?.number ?? Number(d.Driver.permanentNumber) || undefined,
+      number: info?.number ?? (Number(d.Driver.permanentNumber) || undefined),
       firstName: d.Driver.givenName,
       lastName: d.Driver.familyName,
       fullName: `${d.Driver.givenName} ${d.Driver.familyName}`,
