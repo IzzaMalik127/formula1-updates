@@ -316,21 +316,20 @@ function FeaturedCircuit({ circuit }: { circuit: CircuitInfo }) {
       <div className="p-5 pb-3 md:p-6 md:pb-3">
         <h3 className="text-sm font-bold tracking-widest">FEATURED CIRCUIT</h3>
       </div>
-      <div className="relative h-40 w-full overflow-hidden md:h-44">
-        <img src={circuit.heroImage} alt={circuit.name} className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+      <div className="relative h-40 w-full overflow-hidden md:h-44 bg-[radial-gradient(ellipse_at_center,rgba(232,0,45,0.2),transparent_60%),linear-gradient(180deg,#0b0b10_0%,#050507_100%)]">
+        <img
+          src={circuit.heroImage}
+          alt={circuit.name}
+          className="absolute inset-0 h-full w-full object-contain p-5 drop-shadow-[0_6px_20px_rgba(232,0,45,0.25)]"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
         <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-1 backdrop-blur">
           <span className="h-3 w-4 overflow-hidden rounded-[2px] ring-1 ring-white/10">
             <Flag cc={circuit.countryCode} className="h-full w-full" />
           </span>
           <span className="text-[10px] font-bold tracking-widest">{circuit.city.toUpperCase()}</span>
         </div>
-        <img
-          src={circuit.trackMap}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute bottom-2 left-2 h-16 w-auto object-contain opacity-80 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
-        />
       </div>
       <div className="px-5 pb-5 md:px-6 md:pb-6">
         <div className="-mt-6 flex items-center gap-3">
