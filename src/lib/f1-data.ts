@@ -1,6 +1,14 @@
 // Live F1 data layer — uses the free Jolpica (Ergast) mirror and official F1 media CDN.
 // All helpers are safe to call from the browser.
 
+import mercedesLogo from "@/assets/mercedes-logo.jpg.asset.json";
+import ferrariLogo from "@/assets/ferrari-logo.jpg.asset.json";
+import mclarenLogo from "@/assets/mclaren-logo.jpg.asset.json";
+import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
+import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
+import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
+import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
+
 export const JOLPICA = "https://api.jolpi.ca/ergast/f1";
 
 /* ---------- Types ---------- */
@@ -88,17 +96,17 @@ export type TeamInfo = {
 export const TEAMS: Record<string, TeamInfo> = {
   mercedes: {
     id: "mercedes", name: "Mercedes", color: "#27F4D2", countryCode: "de",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes-logo.png",
+    logo: mercedesLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes.png",
   },
   ferrari: {
     id: "ferrari", name: "Ferrari", color: "#E8002D", countryCode: "it",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari-logo.png",
+    logo: ferrariLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari.png",
   },
   mclaren: {
     id: "mclaren", name: "McLaren", color: "#FF8000", countryCode: "gb",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren-logo.png",
+    logo: mclarenLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren.png",
   },
   red_bull: {
@@ -143,7 +151,7 @@ export const TEAMS: Record<string, TeamInfo> = {
   },
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cadillac_logo.svg/240px-Cadillac_logo.svg.png",
+    logo: cadillacLogo.url,
   },
 };
 
@@ -197,14 +205,14 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   ocon:           { number: 31, headshot: H("E", "ESTOCO01_Esteban_Ocon", "estoco01") },
   albon:          { number: 23, headshot: H("A", "ALEALB01_Alexander_Albon", "alealb01") },
   colapinto:      { number: 43, headshot: H("F", "FRACOL01_Franco_Colapinto", "fracol01") },
-  hulkenberg:     { number: 27, headshot: H("N", "NICHUL01_Nico_Hulkenberg", "nichul01") },
+  hulkenberg:     { number: 27, headshot: driverHulkenberg.url },
   bottas:         { number: 77, headshot: H("V", "VALBOT01_Valtteri_Bottas", "valbot01") },
   tsunoda:        { number: 22, headshot: H("Y", "YUKTSU01_Yuki_Tsunoda", "yuktsu01") },
   lawson:         { number: 30, headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
   hadjar:         { number: 6, headshot: H("I", "ISAHAD01_Isack_Hadjar", "isahad01") },
   bearman:        { number: 87, headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
-  antonelli:      { number: 12, headshot: H("A", "ANDANT01_Andrea_Kimi_Antonelli", "andant01") },
-  bortoleto:      { number: 5, headshot: H("G", "GABBOR01_Gabriel_Bortoleto", "gabbor01") },
+  antonelli:      { number: 12, headshot: driverAntonelli.url },
+  bortoleto:      { number: 5, headshot: driverBortoleto.url },
   arvid_lindblad: { number: 41, headshot: H("A", "ARVLIN01_Arvid_Lindblad", "arvlin01") },
   doohan:         { number: 7, headshot: H("J", "JACDOO01_Jack_Doohan", "jacdoo01") },
 };
@@ -254,168 +262,168 @@ export const CIRCUITS: Record<string, CircuitInfo> = {
     id: "bahrain", name: "Bahrain International Circuit", country: "Bahrain", countryCode: "bh",
     city: "Sakhir", lengthKm: 5.412, laps: 57, firstGp: 2004,
     lapRecord: { time: "1:31.447", driver: "P. Gasly", year: 2020 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Bahrain_International_Circuit%2C_2013.jpg/1600px-Bahrain_International_Circuit%2C_2013.jpg",
+    heroImage: TRACK_MAP("Bahrain"),
     trackMap: TRACK_MAP("Bahrain"),
   },
   jeddah: {
     id: "jeddah", name: "Jeddah Corniche Circuit", country: "Saudi Arabia", countryCode: "sa",
     city: "Jeddah", lengthKm: 6.174, laps: 50, firstGp: 2021,
     lapRecord: { time: "1:30.734", driver: "L. Hamilton", year: 2021 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jeddah_Corniche_Circuit_layout_map.png/1600px-Jeddah_Corniche_Circuit_layout_map.png",
+    heroImage: TRACK_MAP("Saudi_Arabia"),
     trackMap: TRACK_MAP("Saudi_Arabia"),
   },
   albert_park: {
     id: "albert_park", name: "Albert Park Circuit", country: "Australia", countryCode: "au",
     city: "Melbourne", lengthKm: 5.278, laps: 58, firstGp: 1996,
     lapRecord: { time: "1:19.813", driver: "C. Leclerc", year: 2024 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Melbourne_Grand_Prix_Circuit.jpg/1600px-Melbourne_Grand_Prix_Circuit.jpg",
+    heroImage: TRACK_MAP("Australia"),
     trackMap: TRACK_MAP("Australia"),
   },
   suzuka: {
     id: "suzuka", name: "Suzuka International Racing Course", country: "Japan", countryCode: "jp",
     city: "Suzuka", lengthKm: 5.807, laps: 53, firstGp: 1987,
     lapRecord: { time: "1:30.983", driver: "L. Hamilton", year: 2019 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Suzuka_circuit_map--2005.svg/1600px-Suzuka_circuit_map--2005.svg.png",
+    heroImage: TRACK_MAP("Japan"),
     trackMap: TRACK_MAP("Japan"),
   },
   shanghai: {
     id: "shanghai", name: "Shanghai International Circuit", country: "China", countryCode: "cn",
     city: "Shanghai", lengthKm: 5.451, laps: 56, firstGp: 2004,
     lapRecord: { time: "1:32.238", driver: "M. Schumacher", year: 2004 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Shanghai_International_Racing_Circuit_track_map.svg/1600px-Shanghai_International_Racing_Circuit_track_map.svg.png",
+    heroImage: TRACK_MAP("China"),
     trackMap: TRACK_MAP("China"),
   },
   miami: {
     id: "miami", name: "Miami International Autodrome", country: "United States", countryCode: "us",
     city: "Miami", lengthKm: 5.412, laps: 57, firstGp: 2022,
     lapRecord: { time: "1:29.708", driver: "M. Verstappen", year: 2023 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Miami_International_Autodrome.svg/1600px-Miami_International_Autodrome.svg.png",
+    heroImage: TRACK_MAP("Miami"),
     trackMap: TRACK_MAP("Miami"),
   },
   imola: {
     id: "imola", name: "Autodromo Enzo e Dino Ferrari", country: "Italy", countryCode: "it",
     city: "Imola", lengthKm: 4.909, laps: 63, firstGp: 1980,
     lapRecord: { time: "1:15.484", driver: "L. Hamilton", year: 2020 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Imola_2008.png/1600px-Imola_2008.png",
+    heroImage: TRACK_MAP("Emilia_Romagna"),
     trackMap: TRACK_MAP("Emilia_Romagna"),
   },
   monaco: {
     id: "monaco", name: "Circuit de Monaco", country: "Monaco", countryCode: "mc",
     city: "Monte Carlo", lengthKm: 3.337, laps: 78, firstGp: 1950,
     lapRecord: { time: "1:12.909", driver: "L. Hamilton", year: 2021 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Circuit_de_Monaco.svg/1600px-Circuit_de_Monaco.svg.png",
+    heroImage: TRACK_MAP("Monaco"),
     trackMap: TRACK_MAP("Monaco"),
   },
   villeneuve: {
     id: "villeneuve", name: "Circuit Gilles Villeneuve", country: "Canada", countryCode: "ca",
     city: "Montreal", lengthKm: 4.361, laps: 70, firstGp: 1978,
     lapRecord: { time: "1:13.078", driver: "V. Bottas", year: 2019 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Circuit_Gilles_Villeneuve.svg/1600px-Circuit_Gilles_Villeneuve.svg.png",
+    heroImage: TRACK_MAP("Canada"),
     trackMap: TRACK_MAP("Canada"),
   },
   catalunya: {
     id: "catalunya", name: "Circuit de Barcelona-Catalunya", country: "Spain", countryCode: "es",
     city: "Montmeló", lengthKm: 4.657, laps: 66, firstGp: 1991,
     lapRecord: { time: "1:16.330", driver: "M. Verstappen", year: 2023 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Circuit_de_Catalunya_moto_2021.svg/1600px-Circuit_de_Catalunya_moto_2021.svg.png",
+    heroImage: TRACK_MAP("Spain"),
     trackMap: TRACK_MAP("Spain"),
   },
   red_bull_ring: {
     id: "red_bull_ring", name: "Red Bull Ring", country: "Austria", countryCode: "at",
     city: "Spielberg", lengthKm: 4.318, laps: 71, firstGp: 1970,
     lapRecord: { time: "1:05.619", driver: "C. Sainz", year: 2020 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Red_Bull_Ring_-_2016.svg/1600px-Red_Bull_Ring_-_2016.svg.png",
+    heroImage: TRACK_MAP("Austria"),
     trackMap: TRACK_MAP("Austria"),
   },
   silverstone: {
     id: "silverstone", name: "Silverstone Circuit", country: "United Kingdom", countryCode: "gb",
     city: "Silverstone", lengthKm: 5.891, laps: 52, firstGp: 1950,
     lapRecord: { time: "1:27.097", driver: "M. Verstappen", year: 2020 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Silverstone_Circuit_2020.png/1600px-Silverstone_Circuit_2020.png",
+    heroImage: TRACK_MAP("Great_Britain"),
     trackMap: TRACK_MAP("Great_Britain"),
   },
   hungaroring: {
     id: "hungaroring", name: "Hungaroring", country: "Hungary", countryCode: "hu",
     city: "Budapest", lengthKm: 4.381, laps: 70, firstGp: 1986,
     lapRecord: { time: "1:16.627", driver: "L. Hamilton", year: 2020 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Hungaroring.svg/1600px-Hungaroring.svg.png",
+    heroImage: TRACK_MAP("Hungary"),
     trackMap: TRACK_MAP("Hungary"),
   },
   spa: {
     id: "spa", name: "Circuit de Spa-Francorchamps", country: "Belgium", countryCode: "be",
     city: "Stavelot", lengthKm: 7.004, laps: 44, firstGp: 1950,
     lapRecord: { time: "1:44.701", driver: "S. Pérez", year: 2024 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Spa-Francorchamps_of_Belgium.svg/1600px-Spa-Francorchamps_of_Belgium.svg.png",
+    heroImage: TRACK_MAP("Belgium"),
     trackMap: TRACK_MAP("Belgium"),
   },
   zandvoort: {
     id: "zandvoort", name: "Circuit Zandvoort", country: "Netherlands", countryCode: "nl",
     city: "Zandvoort", lengthKm: 4.259, laps: 72, firstGp: 1952,
     lapRecord: { time: "1:11.097", driver: "L. Hamilton", year: 2021 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Circuit_Zandvoort.svg/1600px-Circuit_Zandvoort.svg.png",
+    heroImage: TRACK_MAP("Netherlands"),
     trackMap: TRACK_MAP("Netherlands"),
   },
   monza: {
     id: "monza", name: "Autodromo Nazionale Monza", country: "Italy", countryCode: "it",
     city: "Monza", lengthKm: 5.793, laps: 53, firstGp: 1950,
     lapRecord: { time: "1:21.046", driver: "R. Barrichello", year: 2004 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Monza_track_map.svg/1600px-Monza_track_map.svg.png",
+    heroImage: TRACK_MAP("Italy"),
     trackMap: TRACK_MAP("Italy"),
   },
   baku: {
     id: "baku", name: "Baku City Circuit", country: "Azerbaijan", countryCode: "az",
     city: "Baku", lengthKm: 6.003, laps: 51, firstGp: 2016,
     lapRecord: { time: "1:43.009", driver: "C. Leclerc", year: 2019 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Baku_City_Circuit_track_map.svg/1600px-Baku_City_Circuit_track_map.svg.png",
+    heroImage: TRACK_MAP("Baku"),
     trackMap: TRACK_MAP("Baku"),
   },
   marina_bay: {
     id: "marina_bay", name: "Marina Bay Street Circuit", country: "Singapore", countryCode: "sg",
     city: "Singapore", lengthKm: 4.940, laps: 62, firstGp: 2008,
     lapRecord: { time: "1:34.486", driver: "D. Ricciardo", year: 2024 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Marina_Bay_Street_Circuit_2023.svg/1600px-Marina_Bay_Street_Circuit_2023.svg.png",
+    heroImage: TRACK_MAP("Singapore"),
     trackMap: TRACK_MAP("Singapore"),
   },
   americas: {
     id: "americas", name: "Circuit of the Americas", country: "United States", countryCode: "us",
     city: "Austin", lengthKm: 5.513, laps: 56, firstGp: 2012,
     lapRecord: { time: "1:36.169", driver: "C. Leclerc", year: 2019 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Circuit_of_the_Americas.svg/1600px-Circuit_of_the_Americas.svg.png",
+    heroImage: TRACK_MAP("USA"),
     trackMap: TRACK_MAP("USA"),
   },
   rodriguez: {
     id: "rodriguez", name: "Autódromo Hermanos Rodríguez", country: "Mexico", countryCode: "mx",
     city: "Mexico City", lengthKm: 4.304, laps: 71, firstGp: 1963,
     lapRecord: { time: "1:17.774", driver: "V. Bottas", year: 2021 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_track_map.svg/1600px-Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_track_map.svg.png",
+    heroImage: TRACK_MAP("Mexico"),
     trackMap: TRACK_MAP("Mexico"),
   },
   interlagos: {
     id: "interlagos", name: "Autódromo José Carlos Pace", country: "Brazil", countryCode: "br",
     city: "São Paulo", lengthKm: 4.309, laps: 71, firstGp: 1973,
     lapRecord: { time: "1:10.540", driver: "V. Bottas", year: 2018 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Autodromo_Jose_Carlos_Pace_%28AKA_Interlagos%29_track_map.svg/1600px-Autodromo_Jose_Carlos_Pace_%28AKA_Interlagos%29_track_map.svg.png",
+    heroImage: TRACK_MAP("Brazil"),
     trackMap: TRACK_MAP("Brazil"),
   },
   vegas: {
     id: "vegas", name: "Las Vegas Strip Circuit", country: "United States", countryCode: "us",
     city: "Las Vegas", lengthKm: 6.201, laps: 50, firstGp: 2023,
     lapRecord: { time: "1:35.490", driver: "O. Piastri", year: 2024 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Las_Vegas_Strip_Circuit.svg/1600px-Las_Vegas_Strip_Circuit.svg.png",
+    heroImage: TRACK_MAP("Las_Vegas"),
     trackMap: TRACK_MAP("Las_Vegas"),
   },
   losail: {
     id: "losail", name: "Lusail International Circuit", country: "Qatar", countryCode: "qa",
     city: "Lusail", lengthKm: 5.419, laps: 57, firstGp: 2021,
     lapRecord: { time: "1:24.319", driver: "L. Hamilton", year: 2024 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Lusail_International_Circuit.svg/1600px-Lusail_International_Circuit.svg.png",
+    heroImage: TRACK_MAP("Qatar"),
     trackMap: TRACK_MAP("Qatar"),
   },
   yas_marina: {
     id: "yas_marina", name: "Yas Marina Circuit", country: "United Arab Emirates", countryCode: "ae",
     city: "Abu Dhabi", lengthKm: 5.281, laps: 58, firstGp: 2009,
     lapRecord: { time: "1:26.103", driver: "M. Verstappen", year: 2021 },
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Yas_Marina_Circuit.svg/1600px-Yas_Marina_Circuit.svg.png",
+    heroImage: TRACK_MAP("Abu_Dhabi"),
     trackMap: TRACK_MAP("Abu_Dhabi"),
   },
 };
@@ -468,7 +476,7 @@ export async function fetchConstructorStandings(signal?: AbortSignal): Promise<C
   if (!res.ok) throw new Error("constructor-standings-failed");
   const json = await res.json();
   const list = json?.MRData?.StandingsTable?.StandingsLists?.[0]?.ConstructorStandings ?? [];
-  return list.map((c: any, i: number): Constructor => {
+  const mapped: Constructor[] = list.map((c: any, i: number): Constructor => {
     const t = teamByIdOrName(c.Constructor.constructorId) ?? teamByIdOrName(c.Constructor.name);
     return {
       pos: Number(c.position ?? i + 1),
@@ -483,6 +491,22 @@ export async function fetchConstructorStandings(signal?: AbortSignal): Promise<C
       car: t?.car,
     };
   });
+  // Ensure Cadillac (joining the grid) shows even if the API hasn't listed them yet.
+  if (!mapped.some((c) => c.constructorId === "cadillac" || /cadillac/i.test(c.name))) {
+    const t = TEAMS.cadillac;
+    mapped.push({
+      pos: mapped.length + 1,
+      constructorId: "cadillac",
+      name: t.name,
+      nationality: "American",
+      countryCode: t.countryCode,
+      pts: 0,
+      wins: 0,
+      color: t.color,
+      logo: t.logo,
+    });
+  }
+  return mapped;
 }
 
 export async function fetchSchedule(signal?: AbortSignal): Promise<ScheduleRace[]> {
