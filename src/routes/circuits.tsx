@@ -53,9 +53,15 @@ function CircuitsPage() {
           {seasonCircuits.map((c) => (
             <li key={c.id}>
               <button onClick={() => setSelected(c)} className="glass-card group relative w-full overflow-hidden text-left transition hover:border-primary/40">
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src={c.heroImage} alt={c.name} className="h-full w-full object-cover transition group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="relative aspect-[16/9] overflow-hidden bg-[radial-gradient(ellipse_at_center,rgba(232,0,45,0.18),transparent_60%),linear-gradient(180deg,#0b0b10_0%,#050507_100%)]">
+                  <img
+                    src={c.heroImage}
+                    alt={c.name}
+                    className="absolute inset-0 h-full w-full object-contain p-6 transition duration-500 group-hover:scale-105 drop-shadow-[0_6px_20px_rgba(232,0,45,0.25)]"
+                    loading="lazy"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                   <div className="absolute right-3 top-3 flex items-center gap-2 rounded-full border border-white/15 bg-black/50 px-2.5 py-1 backdrop-blur">
                     <span className="h-3 w-4 overflow-hidden rounded-[2px] ring-1 ring-white/10">
                       <Flag cc={c.countryCode} className="h-full w-full" />
