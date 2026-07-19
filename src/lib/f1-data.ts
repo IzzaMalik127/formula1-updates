@@ -1,6 +1,14 @@
 // Live F1 data layer — uses the free Jolpica (Ergast) mirror and official F1 media CDN.
 // All helpers are safe to call from the browser.
 
+import mercedesLogo from "@/assets/mercedes-logo.jpg.asset.json";
+import ferrariLogo from "@/assets/ferrari-logo.jpg.asset.json";
+import mclarenLogo from "@/assets/mclaren-logo.jpg.asset.json";
+import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
+import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
+import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
+import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
+
 export const JOLPICA = "https://api.jolpi.ca/ergast/f1";
 
 /* ---------- Types ---------- */
