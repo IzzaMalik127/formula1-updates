@@ -476,7 +476,7 @@ export async function fetchConstructorStandings(signal?: AbortSignal): Promise<C
   if (!res.ok) throw new Error("constructor-standings-failed");
   const json = await res.json();
   const list = json?.MRData?.StandingsTable?.StandingsLists?.[0]?.ConstructorStandings ?? [];
-  return list.map((c: any, i: number): Constructor => {
+  const mapped: Constructor[] = list.map((c: any, i: number): Constructor => {
     const t = teamByIdOrName(c.Constructor.constructorId) ?? teamByIdOrName(c.Constructor.name);
     return {
       pos: Number(c.position ?? i + 1),
@@ -491,6 +491,22 @@ export async function fetchConstructorStandings(signal?: AbortSignal): Promise<C
       car: t?.car,
     };
   });
+  // Ensure Cadillac (joining the grid) shows even if the API hasn't listed them yet.
+  if (!mapped.some((c) => c.constructorId === "cadillac" || /cadillac/i.test(c.name))) {
+    const t = TEAMS.cadillac;
+    mapped.push({
+      pos: mapped.length + 1,
+      constructorId: "cadillac",
+      name: t.name,
+      nationality: "American",
+      countryCode: t.countryCode,
+      pts: 0,
+      wins: 0,
+      color: t.color,
+      logo: t.logo,
+    });
+  }
+  return mapped;
 }
 
 export async function fetchSchedule(signal?: AbortSignal): Promise<ScheduleRace[]> {
