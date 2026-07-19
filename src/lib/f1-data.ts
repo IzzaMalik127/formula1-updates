@@ -205,7 +205,7 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   ocon:           { number: 31, headshot: H("E", "ESTOCO01_Esteban_Ocon", "estoco01") },
   albon:          { number: 23, headshot: H("A", "ALEALB01_Alexander_Albon", "alealb01") },
   colapinto:      { number: 43, headshot: H("F", "FRACOL01_Franco_Colapinto", "fracol01") },
-  hulkenberg:     { number: 27, headshot: H("N", "NICHUL01_Nico_Hulkenberg", "nichul01") },
+  hulkenberg:     { number: 27, headshot: driverHulkenberg.url },
   bottas:         { number: 77, headshot: H("V", "VALBOT01_Valtteri_Bottas", "valbot01") },
   tsunoda:        { number: 22, headshot: H("Y", "YUKTSU01_Yuki_Tsunoda", "yuktsu01") },
   lawson:         { number: 30, headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
