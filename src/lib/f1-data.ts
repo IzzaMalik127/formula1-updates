@@ -96,17 +96,17 @@ export type TeamInfo = {
 export const TEAMS: Record<string, TeamInfo> = {
   mercedes: {
     id: "mercedes", name: "Mercedes", color: "#27F4D2", countryCode: "de",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes-logo.png",
+    logo: mercedesLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes.png",
   },
   ferrari: {
     id: "ferrari", name: "Ferrari", color: "#E8002D", countryCode: "it",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari-logo.png",
+    logo: ferrariLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari.png",
   },
   mclaren: {
     id: "mclaren", name: "McLaren", color: "#FF8000", countryCode: "gb",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren-logo.png",
+    logo: mclarenLogo.url,
     car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren.png",
   },
   red_bull: {
@@ -151,7 +151,7 @@ export const TEAMS: Record<string, TeamInfo> = {
   },
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cadillac_logo.svg/240px-Cadillac_logo.svg.png",
+    logo: cadillacLogo.url,
   },
 };
 
