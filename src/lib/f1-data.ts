@@ -1,10 +1,8 @@
 // Live F1 data layer — uses the free Jolpica (Ergast) mirror and official F1 media CDN.
 // All helpers are safe to call from the browser.
 
-import mercedesLogo from "@/assets/mercedes-logo.jpg.asset.json";
-import ferrariLogo from "@/assets/ferrari-logo.jpg.asset.json";
-import mclarenLogo from "@/assets/mclaren-logo.jpg.asset.json";
 import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
+import audiLogo from "@/assets/audi-logo.png.asset.json";
 import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
 import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
 import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
@@ -93,61 +91,65 @@ export type TeamInfo = {
 };
 
 // Keyed by Ergast constructorId (stable) + friendly display name lookups.
+// All logos use F1's official transparent-PNG CDN so they render at a
+// consistent size/aspect ratio on dark cards. Exceptions: Audi (generated
+// silver rings) and Cadillac (uploaded mark) — both transparent-friendly.
+const F1CDN = "https://media.formula1.com/content/dam/fom-website/teams/2024";
 export const TEAMS: Record<string, TeamInfo> = {
   mercedes: {
     id: "mercedes", name: "Mercedes", color: "#27F4D2", countryCode: "de",
-    logo: mercedesLogo.url,
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes.png",
+    logo: `${F1CDN}/mercedes-logo.png`,
+    car: `${F1CDN}/mercedes.png`,
   },
   ferrari: {
     id: "ferrari", name: "Ferrari", color: "#E8002D", countryCode: "it",
-    logo: ferrariLogo.url,
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari.png",
+    logo: `${F1CDN}/ferrari-logo.png`,
+    car: `${F1CDN}/ferrari.png`,
   },
   mclaren: {
     id: "mclaren", name: "McLaren", color: "#FF8000", countryCode: "gb",
-    logo: mclarenLogo.url,
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren.png",
+    logo: `${F1CDN}/mclaren-logo.png`,
+    car: `${F1CDN}/mclaren.png`,
   },
   red_bull: {
     id: "red_bull", name: "Red Bull", color: "#3671C6", countryCode: "at",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/red-bull-racing-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/red-bull-racing.png",
+    logo: `${F1CDN}/red-bull-racing-logo.png`,
+    car: `${F1CDN}/red-bull-racing.png`,
   },
   alpine: {
     id: "alpine", name: "Alpine", color: "#0093CC", countryCode: "fr",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/alpine-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/alpine.png",
+    logo: `${F1CDN}/alpine-logo.png`,
+    car: `${F1CDN}/alpine.png`,
   },
   rb: {
     id: "rb", name: "RB", color: "#6692FF", countryCode: "it",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/rb-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/rb.png",
+    logo: `${F1CDN}/rb-logo.png`,
+    car: `${F1CDN}/rb.png`,
   },
   haas: {
     id: "haas", name: "Haas", color: "#B6BABD", countryCode: "us",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/haas-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/haas.png",
+    logo: `${F1CDN}/haas-logo.png`,
+    car: `${F1CDN}/haas.png`,
   },
   williams: {
     id: "williams", name: "Williams", color: "#64C4FF", countryCode: "gb",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/williams-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/williams.png",
+    logo: `${F1CDN}/williams-logo.png`,
+    car: `${F1CDN}/williams.png`,
   },
   audi: {
     id: "audi", name: "Audi", color: "#00E700", countryCode: "de",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber.png",
+    logo: audiLogo.url,
+    car: `${F1CDN}/kick-sauber.png`,
   },
   sauber: {
     id: "sauber", name: "Kick Sauber", color: "#52E252", countryCode: "ch",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber.png",
+    logo: `${F1CDN}/kick-sauber-logo.png`,
+    car: `${F1CDN}/kick-sauber.png`,
   },
   aston_martin: {
     id: "aston_martin", name: "Aston Martin", color: "#229971", countryCode: "gb",
-    logo: "https://media.formula1.com/content/dam/fom-website/teams/2024/aston-martin-logo.png",
-    car: "https://media.formula1.com/content/dam/fom-website/teams/2024/aston-martin.png",
+    logo: `${F1CDN}/aston-martin-logo.png`,
+    car: `${F1CDN}/aston-martin.png`,
   },
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
