@@ -211,8 +211,8 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   lawson:         { number: 30, headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
   hadjar:         { number: 6, headshot: H("I", "ISAHAD01_Isack_Hadjar", "isahad01") },
   bearman:        { number: 87, headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
-  antonelli:      { number: 12, headshot: H("A", "ANDANT01_Andrea_Kimi_Antonelli", "andant01") },
-  bortoleto:      { number: 5, headshot: H("G", "GABBOR01_Gabriel_Bortoleto", "gabbor01") },
+  antonelli:      { number: 12, headshot: driverAntonelli.url },
+  bortoleto:      { number: 5, headshot: driverBortoleto.url },
   arvid_lindblad: { number: 41, headshot: H("A", "ARVLIN01_Arvid_Lindblad", "arvlin01") },
   doohan:         { number: 7, headshot: H("J", "JACDOO01_Jack_Doohan", "jacdoo01") },
 };
