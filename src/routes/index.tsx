@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronRight, Calendar, Clock, Ruler, RefreshCw, Timer, Trophy, ArrowRight, MapPin } from "lucide-react";
 
-import heroCars from "@/assets/hero-ferrari.jpg.asset.json";
+import heroCars from "@/assets/hero-night-hd.jpg.asset.json";
 
 import { AppShell } from "@/components/f1/AppShell";
 import { F1Logo } from "@/components/f1/F1Logo";
