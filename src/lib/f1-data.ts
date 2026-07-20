@@ -3,8 +3,8 @@
 
 import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
 import audiLogo from "@/assets/audi-logo.png.asset.json";
-import audiCar from "@/assets/audi-car.jpg.asset.json";
-import cadillacCar from "@/assets/cadillac-car.jpg.asset.json";
+import audiCar from "@/assets/audi-car.png.asset.json";
+import cadillacCar from "@/assets/cadillac-car.png.asset.json";
 import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
 import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
 import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
