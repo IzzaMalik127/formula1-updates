@@ -3,9 +3,12 @@
 
 import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
 import audiLogo from "@/assets/audi-logo.png.asset.json";
+import audiCar from "@/assets/audi-car.jpg.asset.json";
+import cadillacCar from "@/assets/cadillac-car.jpg.asset.json";
 import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
 import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
 import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
+import driverLindblad from "@/assets/driver-lindblad.jpg.asset.json";
 
 export const JOLPICA = "https://api.jolpi.ca/ergast/f1";
 
@@ -139,7 +142,7 @@ export const TEAMS: Record<string, TeamInfo> = {
   audi: {
     id: "audi", name: "Audi", color: "#00E700", countryCode: "de",
     logo: audiLogo.url,
-    car: `${F1CDN}/kick-sauber.png`,
+    car: audiCar.url,
   },
   sauber: {
     id: "sauber", name: "Kick Sauber", color: "#52E252", countryCode: "ch",
@@ -154,6 +157,7 @@ export const TEAMS: Record<string, TeamInfo> = {
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
     logo: cadillacLogo.url,
+    car: cadillacCar.url,
   },
 };
 
@@ -215,7 +219,8 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   bearman:        { number: 87, headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
   antonelli:      { number: 12, headshot: driverAntonelli.url },
   bortoleto:      { number: 5, headshot: driverBortoleto.url },
-  arvid_lindblad: { number: 41, headshot: H("A", "ARVLIN01_Arvid_Lindblad", "arvlin01") },
+  arvid_lindblad: { number: 41, headshot: driverLindblad.url },
+  lindblad:       { number: 41, headshot: driverLindblad.url },
   doohan:         { number: 7, headshot: H("J", "JACDOO01_Jack_Doohan", "jacdoo01") },
 };
 
