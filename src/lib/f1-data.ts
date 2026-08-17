@@ -146,7 +146,6 @@ export const TEAMS: Record<string, TeamInfo> = {
   },
   aston_martin: {
 
-  aston_martin: {
     id: "aston_martin", name: "Aston Martin", color: "#229971", countryCode: "gb",
     logo: `${F1CDN}/aston-martin-logo.png`,
     car: `${F1CDN}/aston-martin.png`,
