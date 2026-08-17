@@ -105,7 +105,7 @@ export function TopNav() {
 
         id: `driver-${id}`,
         label: name,
-        subLabel: "Driver",
+        subLabel: d.team,
         to: "/drivers",
         icon: d.headshot ? (
           <img
@@ -117,7 +117,7 @@ export function TopNav() {
         ) : (
           <Users className="h-4 w-4" />
         ),
-        keywords: `${name} driver number ${d.number}`,
+        keywords: `${name} ${d.team} driver number ${d.number}`,
       };
     });
 
