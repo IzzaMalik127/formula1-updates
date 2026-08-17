@@ -169,9 +169,14 @@ const TEAM_NAME_ALIASES: Record<string, string> = {
   "Williams": "williams",
   "RB F1 Team": "rb",
   "RB": "rb",
-  "Kick Sauber": "sauber",
-  "Sauber": "sauber",
+  // Sauber became the Audi works team from 2026 — always show Audi.
+  "sauber": "audi",
+  "Kick Sauber": "audi",
+  "Stake F1 Team Kick Sauber": "audi",
+  "Sauber": "audi",
   "Audi": "audi",
+  "Audi F1 Team": "audi",
+
   "Haas F1 Team": "haas",
   "Haas": "haas",
   "Cadillac F1 Team": "cadillac",
