@@ -192,38 +192,48 @@ export function teamByIdOrName(idOrName: string): TeamInfo | undefined {
 /* ---------- Driver metadata (headshots + numbers) ---------- */
 // Ergast driverId -> extra display info. Headshots point to F1's media CDN
 // using the driver's public headshot slug.
-type DriverInfo = { number?: number; headshot?: string };
+type DriverInfo = { number?: number; headshot?: string; name: string; team: string };
 
 const H = (letter: string, slug: string, code: string) =>
   `https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/${letter}/${slug}/${code}.png.transform/2col/image.png`;
 
+// 2026 Formula 1 grid.
 export const DRIVER_INFO: Record<string, DriverInfo> = {
-  max_verstappen: { number: 1, headshot: H("M", "MAXVER01_Max_Verstappen", "maxver01") },
-  norris:         { number: 4, headshot: H("L", "LANNOR01_Lando_Norris", "lannor01") },
-  leclerc:        { number: 16, headshot: H("C", "CHALEC01_Charles_Leclerc", "chalec01") },
-  sainz:          { number: 55, headshot: H("C", "CARSAI01_Carlos_Sainz", "carsai01") },
-  perez:          { number: 11, headshot: H("S", "SERPER01_Sergio_Perez", "serper01") },
-  piastri:        { number: 81, headshot: H("O", "OSCPIA01_Oscar_Piastri", "oscpia01") },
-  hamilton:       { number: 44, headshot: H("L", "LEWHAM01_Lewis_Hamilton", "lewham01") },
-  russell:        { number: 63, headshot: H("G", "GEORUS01_George_Russell", "georus01") },
-  alonso:         { number: 14, headshot: H("F", "FERALO01_Fernando_Alonso", "feralo01") },
-  stroll:         { number: 18, headshot: H("L", "LANSTR01_Lance_Stroll", "lanstr01") },
-  gasly:          { number: 10, headshot: H("P", "PIEGAS01_Pierre_Gasly", "piegas01") },
-  ocon:           { number: 31, headshot: H("E", "ESTOCO01_Esteban_Ocon", "estoco01") },
-  albon:          { number: 23, headshot: H("A", "ALEALB01_Alexander_Albon", "alealb01") },
-  colapinto:      { number: 43, headshot: H("F", "FRACOL01_Franco_Colapinto", "fracol01") },
-  hulkenberg:     { number: 27, headshot: driverHulkenberg.url },
-  bottas:         { number: 77, headshot: H("V", "VALBOT01_Valtteri_Bottas", "valbot01") },
-  tsunoda:        { number: 22, headshot: H("Y", "YUKTSU01_Yuki_Tsunoda", "yuktsu01") },
-  lawson:         { number: 30, headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
-  hadjar:         { number: 6, headshot: H("I", "ISAHAD01_Isack_Hadjar", "isahad01") },
-  bearman:        { number: 87, headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
-  antonelli:      { number: 12, headshot: driverAntonelli.url },
-  bortoleto:      { number: 5, headshot: driverBortoleto.url },
-  arvid_lindblad: { number: 41, headshot: driverLindblad.url },
-  lindblad:       { number: 41, headshot: driverLindblad.url },
-  doohan:         { number: 7, headshot: H("J", "JACDOO01_Jack_Doohan", "jacdoo01") },
+  max_verstappen: { number: 1, name: "Max Verstappen", team: "Red Bull", headshot: H("M", "MAXVER01_Max_Verstappen", "maxver01") },
+  hadjar:         { number: 6, name: "Isack Hadjar", team: "Red Bull", headshot: H("I", "ISAHAD01_Isack_Hadjar", "isahad01") },
+  norris:         { number: 4, name: "Lando Norris", team: "McLaren", headshot: H("L", "LANNOR01_Lando_Norris", "lannor01") },
+  piastri:        { number: 81, name: "Oscar Piastri", team: "McLaren", headshot: H("O", "OSCPIA01_Oscar_Piastri", "oscpia01") },
+  leclerc:        { number: 16, name: "Charles Leclerc", team: "Ferrari", headshot: H("C", "CHALEC01_Charles_Leclerc", "chalec01") },
+  hamilton:       { number: 44, name: "Lewis Hamilton", team: "Ferrari", headshot: H("L", "LEWHAM01_Lewis_Hamilton", "lewham01") },
+  russell:        { number: 63, name: "George Russell", team: "Mercedes", headshot: H("G", "GEORUS01_George_Russell", "georus01") },
+  antonelli:      { number: 12, name: "Andrea Kimi Antonelli", team: "Mercedes", headshot: driverAntonelli.url },
+  alonso:         { number: 14, name: "Fernando Alonso", team: "Aston Martin", headshot: H("F", "FERALO01_Fernando_Alonso", "feralo01") },
+  stroll:         { number: 18, name: "Lance Stroll", team: "Aston Martin", headshot: H("L", "LANSTR01_Lance_Stroll", "lanstr01") },
+  gasly:          { number: 10, name: "Pierre Gasly", team: "Alpine", headshot: H("P", "PIEGAS01_Pierre_Gasly", "piegas01") },
+  colapinto:      { number: 43, name: "Franco Colapinto", team: "Alpine", headshot: H("F", "FRACOL01_Franco_Colapinto", "fracol01") },
+  albon:          { number: 23, name: "Alexander Albon", team: "Williams", headshot: H("A", "ALEALB01_Alexander_Albon", "alealb01") },
+  sainz:          { number: 55, name: "Carlos Sainz", team: "Williams", headshot: H("C", "CARSAI01_Carlos_Sainz", "carsai01") },
+  ocon:           { number: 31, name: "Esteban Ocon", team: "Haas", headshot: H("E", "ESTOCO01_Esteban_Ocon", "estoco01") },
+  bearman:        { number: 87, name: "Oliver Bearman", team: "Haas", headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
+  lawson:         { number: 30, name: "Liam Lawson", team: "Racing Bulls", headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
+  arvid_lindblad: { number: 41, name: "Arvid Lindblad", team: "Racing Bulls", headshot: driverLindblad.url },
+  hulkenberg:     { number: 27, name: "Nico Hülkenberg", team: "Audi", headshot: driverHulkenberg.url },
+  bortoleto:      { number: 5, name: "Gabriel Bortoleto", team: "Audi", headshot: driverBortoleto.url },
+  perez:          { number: 11, name: "Sergio Pérez", team: "Cadillac", headshot: H("S", "SERPER01_Sergio_Perez", "serper01") },
+  bottas:         { number: 77, name: "Valtteri Bottas", team: "Cadillac", headshot: H("V", "VALBOT01_Valtteri_Bottas", "valbot01") },
 };
+
+// Alternate Ergast ids that map to the same driver.
+const DRIVER_ID_ALIASES: Record<string, string> = {
+  lindblad: "arvid_lindblad",
+  kimi_antonelli: "antonelli",
+  andrea_kimi_antonelli: "antonelli",
+};
+
+export function driverInfo(driverId: string): DriverInfo | undefined {
+  return DRIVER_INFO[driverId] ?? DRIVER_INFO[DRIVER_ID_ALIASES[driverId] ?? ""];
+}
+
 
 /* ---------- Nationality -> ISO country code ---------- */
 export const NATIONALITY_TO_CC: Record<string, string> = {
