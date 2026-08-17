@@ -95,7 +95,7 @@ export function TopNav() {
       label: c.name,
       subLabel: c.country,
       to: "/circuits",
-      icon: <Flag code={c.countryCode} className="h-4 w-4" />,
+      icon: <Flag cc={c.countryCode} className="h-4 w-4" />,
       keywords: `${c.name} ${c.country} ${c.city} circuit track`,
     }));
 
