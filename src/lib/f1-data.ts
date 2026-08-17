@@ -144,11 +144,8 @@ export const TEAMS: Record<string, TeamInfo> = {
     logo: audiLogo.url,
     car: audiCar.url,
   },
-  sauber: {
-    id: "sauber", name: "Kick Sauber", color: "#52E252", countryCode: "ch",
-    logo: `${F1CDN}/kick-sauber-logo.png`,
-    car: `${F1CDN}/kick-sauber.png`,
-  },
+  aston_martin: {
+
   aston_martin: {
     id: "aston_martin", name: "Aston Martin", color: "#229971", countryCode: "gb",
     logo: `${F1CDN}/aston-martin-logo.png`,
