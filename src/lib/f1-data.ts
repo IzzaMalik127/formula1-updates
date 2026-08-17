@@ -467,7 +467,7 @@ export async function fetchDriverStandings(signal?: AbortSignal): Promise<Driver
   return list.map((d: any, i: number): Driver => {
     const ctor = d.Constructors[0];
     const teamInfo = teamByIdOrName(ctor.constructorId) ?? teamByIdOrName(ctor.name);
-    const info = DRIVER_INFO[d.Driver.driverId];
+    const info = driverInfo(d.Driver.driverId);
     return {
       pos: Number(d.position ?? i + 1),
       posText: d.positionText,
@@ -573,7 +573,7 @@ export async function fetchLastRaceResults(signal?: AbortSignal): Promise<{ race
   if (!race) return { results: [] };
   const results: RaceResult[] = (race.Results ?? []).slice(0, 10).map((r: any): RaceResult => {
     const teamInfo = teamByIdOrName(r.Constructor.constructorId) ?? teamByIdOrName(r.Constructor.name);
-    const info = DRIVER_INFO[r.Driver.driverId];
+    const info = driverInfo(r.Driver.driverId);
     return {
       pos: Number(r.position),
       driverName: `${r.Driver.givenName} ${r.Driver.familyName}`,
