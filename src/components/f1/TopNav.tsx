@@ -100,8 +100,9 @@ export function TopNav() {
     }));
 
     const drivers: SearchItem[] = Object.entries(DRIVER_INFO).map(([id, d]) => {
-      const name = id.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+      const name = d.name;
       return {
+
         id: `driver-${id}`,
         label: name,
         subLabel: "Driver",
