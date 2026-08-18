@@ -5,6 +5,7 @@ import { AppShell } from "@/components/f1/AppShell";
 import { DriverPortrait } from "@/components/f1/DriverPortrait";
 import { ConstructorLogo } from "@/components/f1/ConstructorLogo";
 import { constructorsOptions, driversOptions, scheduleOptions, useConstructors, useDrivers, useSchedule } from "@/hooks/use-f1";
+import type { Driver } from "@/lib/f1-data";
 
 export const Route = createFileRoute("/statistics")({
   head: () => ({
