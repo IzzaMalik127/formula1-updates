@@ -37,6 +37,11 @@ function StatisticsPage() {
   const topConstructor = constructors[0];
   const totalPoints = drivers.reduce((s, d) => s + d.pts, 0);
 
+  const seasonPct = rounds ? Math.round((completed / rounds) * 100) : 0;
+  const totalWins = drivers.reduce((s, d) => s + d.wins, 0);
+  const gapToSecond = drivers[1] ? (drivers[0]?.pts ?? 0) - drivers[1].pts : 0;
+  const teamGap = constructors[1] ? (constructors[0]?.pts ?? 0) - constructors[1].pts : 0;
+
   return (
     <AppShell>
       <section className="container-f1 pt-10">
@@ -44,14 +49,83 @@ function StatisticsPage() {
           <div className="text-[11px] font-bold tracking-[0.2em] text-primary">SEASON STATS</div>
           <h1 className="mt-2 text-3xl font-black tracking-tight md:text-4xl">2026 STATISTICS</h1>
           <p className="mt-1 text-sm text-muted-foreground">Round {completed} of {rounds} complete</p>
+          <div className="mt-4 max-w-md">
+            <div className="flex items-center justify-between text-[10px] font-bold tracking-widest text-muted-foreground">
+              <span>SEASON PROGRESS</span>
+              <span className="tabular-nums text-foreground">{seasonPct}%</span>
+            </div>
+            <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/5">
+              <div
+                className="h-full rounded-full bg-primary transition-[width] duration-700"
+                style={{ width: `${seasonPct}%`, boxShadow: "0 0 14px var(--f1-red-glow)" }}
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard icon={Trophy} label="POINTS LEADER" value={topDriverByPts?.fullName ?? "—"} sub={`${topDriverByPts?.pts ?? 0} pts`} color={topDriverByPts?.color} />
-          <StatCard icon={Zap} label="MOST WINS" value={topDriverByWins?.fullName ?? "—"} sub={`${topDriverByWins?.wins ?? 0} wins`} color={topDriverByWins?.color} />
-          <StatCard icon={FlagIcon} label="LEADING TEAM" value={topConstructor?.name ?? "—"} sub={`${topConstructor?.pts ?? 0} pts`} color={topConstructor?.color} />
-          <StatCard icon={Target} label="POINTS SCORED" value={String(totalPoints)} sub="across the grid" />
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          {topDriverByPts && (
+            <HeroDriverCard
+              badge="POINTS LEADER"
+              icon={Trophy}
+              driver={topDriverByPts}
+              metric={`${topDriverByPts.pts}`}
+              metricLabel="POINTS"
+              foot={gapToSecond > 0 ? `+${gapToSecond} pts ahead of ${drivers[1]?.fullName}` : "Championship lead"}
+              pct={100}
+            />
+          )}
+          {topDriverByWins && (
+            <HeroDriverCard
+              badge="MOST WINS"
+              icon={Zap}
+              driver={topDriverByWins}
+              metric={`${topDriverByWins.wins}`}
+              metricLabel="WINS"
+              foot={`${totalWins ? Math.round((topDriverByWins.wins / totalWins) * 100) : 0}% of all race wins this season`}
+              pct={totalWins ? (topDriverByWins.wins / totalWins) * 100 : 0}
+            />
+          )}
+          {topConstructor && (
+            <div
+              className="glass-card relative overflow-hidden p-5"
+              style={{ background: `linear-gradient(135deg, ${topConstructor.color}1f, transparent 60%)` }}
+            >
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1" style={{ background: topConstructor.color, boxShadow: `0 0 20px ${topConstructor.color}88` }} />
+              <div className="flex items-center justify-between">
+                <div className="text-[10px] font-bold tracking-widest text-muted-foreground">LEADING TEAM</div>
+                <FlagIcon className="h-5 w-5 text-primary/60" />
+              </div>
+              <div className="mt-4 flex items-center gap-4">
+                <ConstructorLogo c={topConstructor} size={64} />
+                <div className="min-w-0">
+                  <div className="truncate text-lg font-black leading-tight">{topConstructor.name}</div>
+                  <div className="text-xs text-muted-foreground">{topConstructor.wins} wins</div>
+                </div>
+                <div className="ml-auto text-right">
+                  <div className="text-3xl font-black tabular-nums leading-none" style={{ color: topConstructor.color }}>{topConstructor.pts}</div>
+                  <div className="text-[10px] font-bold tracking-widest text-muted-foreground">POINTS</div>
+                </div>
+              </div>
+              {topConstructor.car && (
+                <img src={topConstructor.car} alt={`${topConstructor.name} car`} className="mt-3 h-16 w-full object-contain" loading="lazy" />
+              )}
+              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/5">
+                <div className="h-full rounded-full" style={{ width: "100%", background: topConstructor.color, boxShadow: `0 0 10px ${topConstructor.color}88` }} />
+              </div>
+              <div className="mt-2 text-xs text-muted-foreground">
+                {teamGap > 0 ? `+${teamGap} pts clear of ${constructors[1]?.name}` : "Constructors' lead"}
+              </div>
+            </div>
+          )}
         </div>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <MiniStat icon={Target} label="POINTS SCORED" value={String(totalPoints)} sub="across the grid" />
+          <MiniStat icon={Trophy} label="RACES DONE" value={`${completed}/${rounds}`} sub={`${rounds - completed} remaining`} />
+          <MiniStat icon={Zap} label="RACE WINNERS" value={String(drivers.filter((d) => d.wins > 0).length)} sub="different drivers" />
+        </div>
+
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           <div className="glass-card p-5 md:p-6">
