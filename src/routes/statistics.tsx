@@ -177,18 +177,73 @@ function StatisticsPage() {
   );
 }
 
-function StatCard({ icon: Icon, label, value, sub, color }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; sub?: string; color?: string }) {
+function HeroDriverCard({
+  badge,
+  icon: Icon,
+  driver,
+  metric,
+  metricLabel,
+  foot,
+  pct,
+}: {
+  badge: string;
+  icon: React.ComponentType<{ className?: string }>;
+  driver: Driver;
+  metric: string;
+  metricLabel: string;
+  foot: string;
+  pct: number;
+}) {
   return (
-    <div className="glass-card relative overflow-hidden p-5">
-      {color && <div className="pointer-events-none absolute inset-x-0 top-0 h-1" style={{ background: color, boxShadow: `0 0 20px ${color}88` }} />}
-      <div className="flex items-start justify-between">
-        <div>
-          <div className="text-[10px] font-bold tracking-widest text-muted-foreground">{label}</div>
-          <div className="mt-2 text-lg font-black leading-tight">{value}</div>
-          {sub && <div className="mt-1 text-xs text-muted-foreground">{sub}</div>}
-        </div>
-        <Icon className="h-6 w-6 text-primary/60" />
+    <div
+      className="glass-card relative overflow-hidden p-5 transition duration-300 hover:-translate-y-0.5"
+      style={{ background: `linear-gradient(135deg, ${driver.color}1f, transparent 60%)` }}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1" style={{ background: driver.color, boxShadow: `0 0 20px ${driver.color}88` }} />
+      <div className="flex items-center justify-between">
+        <div className="text-[10px] font-bold tracking-widest text-muted-foreground">{badge}</div>
+        <Icon className="h-5 w-5 text-primary/60" />
       </div>
+      <div className="mt-4 flex items-center gap-4">
+        <DriverPortrait d={driver} size={64} />
+        <div className="min-w-0">
+          <div className="truncate text-lg font-black leading-tight">{driver.fullName}</div>
+          <div className="truncate text-xs text-muted-foreground">{driver.team}</div>
+          {driver.countryCode && (
+            <img
+              src={`https://flagcdn.com/w40/${driver.countryCode.toLowerCase()}.png`}
+              alt={driver.nationality}
+              className="mt-1 h-3 w-5 rounded-[2px] object-cover"
+              loading="lazy"
+            />
+          )}
+        </div>
+        <div className="ml-auto text-right">
+          <div className="text-3xl font-black tabular-nums leading-none" style={{ color: driver.color }}>{metric}</div>
+          <div className="text-[10px] font-bold tracking-widest text-muted-foreground">{metricLabel}</div>
+        </div>
+      </div>
+      <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/5">
+        <div
+          className="h-full rounded-full transition-[width] duration-700"
+          style={{ width: `${Math.max(6, Math.min(100, pct))}%`, background: driver.color, boxShadow: `0 0 10px ${driver.color}88` }}
+        />
+      </div>
+      <div className="mt-2 truncate text-xs text-muted-foreground">{foot}</div>
     </div>
   );
 }
+
+function MiniStat({ icon: Icon, label, value, sub }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; sub?: string }) {
+  return (
+    <div className="glass-card flex items-center justify-between p-4">
+      <div>
+        <div className="text-[10px] font-bold tracking-widest text-muted-foreground">{label}</div>
+        <div className="mt-1 text-2xl font-black tabular-nums leading-none">{value}</div>
+        {sub && <div className="mt-1 text-xs text-muted-foreground">{sub}</div>}
+      </div>
+      <Icon className="h-5 w-5 text-primary/60" />
+    </div>
+  );
+}
+
