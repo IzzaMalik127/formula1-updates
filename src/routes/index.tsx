@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronRight, Calendar, Clock, Ruler, RefreshCw, Timer, Trophy, ArrowRight, MapPin } from "lucide-react";
 
-import heroCars from "@/assets/hero-night-hd.jpg.asset.json";
+import heroCars from "@/assets/hero-night-hd.jpg";
 
 import { AppShell } from "@/components/f1/AppShell";
 import { F1Logo } from "@/components/f1/F1Logo";
@@ -78,7 +78,7 @@ function Hero() {
       <div className="container-f1 pt-6 md:pt-10">
         <div className="relative overflow-hidden rounded-2xl">
           <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-            <img src={heroCars.url} alt="Formula 1 cars at speed" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={heroCars} alt="Formula 1 cars at speed" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/70" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
             <div className="absolute left-6 top-6 opacity-20 md:left-10 md:top-10">
