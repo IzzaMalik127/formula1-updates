@@ -1,23 +1,23 @@
 // Live F1 data layer — uses the free Jolpica (Ergast) mirror and official F1 media CDN.
 // All helpers are safe to call from the browser.
 
-import logo_alpine from "@/assets/team-alpine-logo.png.asset.json";
-import logo_aston_martin from "@/assets/team-aston_martin-logo.png.asset.json";
-import logo_audi from "@/assets/team-audi-logo.png.asset.json";
-import logo_cadillac from "@/assets/team-cadillac-logo.png.asset.json";
-import logo_ferrari from "@/assets/team-ferrari-logo.png.asset.json";
-import logo_haas from "@/assets/team-haas-logo.png.asset.json";
-import logo_mclaren from "@/assets/team-mclaren-logo.png.asset.json";
-import logo_mercedes from "@/assets/team-mercedes-logo.png.asset.json";
-import logo_rb from "@/assets/team-rb-logo.png.asset.json";
-import logo_red_bull from "@/assets/team-red_bull-logo.png.asset.json";
-import logo_williams from "@/assets/team-williams-logo.png.asset.json";
-import audiCar from "@/assets/audi-car.png.asset.json";
-import cadillacCar from "@/assets/cadillac-car.png.asset.json";
-import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
-import driverBortoleto from "@/assets/driver-bortoleto.jpg.asset.json";
-import driverHulkenberg from "@/assets/driver-hulkenberg.jpg.asset.json";
-import driverLindblad from "@/assets/driver-lindblad.jpg.asset.json";
+import logo_alpine from "@/assets/team-alpine-logo.png";
+import logo_aston_martin from "@/assets/team-aston_martin-logo.png";
+import logo_audi from "@/assets/team-audi-logo.png";
+import logo_cadillac from "@/assets/team-cadillac-logo.png";
+import logo_ferrari from "@/assets/team-ferrari-logo.png";
+import logo_haas from "@/assets/team-haas-logo.png";
+import logo_mclaren from "@/assets/team-mclaren-logo.png";
+import logo_mercedes from "@/assets/team-mercedes-logo.png";
+import logo_rb from "@/assets/team-rb-logo.png";
+import logo_red_bull from "@/assets/team-red_bull-logo.png";
+import logo_williams from "@/assets/team-williams-logo.png";
+import audiCar from "@/assets/audi-car.png";
+import cadillacCar from "@/assets/cadillac-car.png";
+import driverAntonelli from "@/assets/driver-antonelli.jpg";
+import driverBortoleto from "@/assets/driver-bortoleto.jpg";
+import driverHulkenberg from "@/assets/driver-hulkenberg.jpg";
+import driverLindblad from "@/assets/driver-lindblad.jpg";
 
 export const JOLPICA = "https://api.jolpi.ca/ergast/f1";
 
@@ -110,59 +110,59 @@ const F1CDN = "https://media.formula1.com/content/dam/fom-website/teams/2024";
 export const TEAMS: Record<string, TeamInfo> = {
   mercedes: {
     id: "mercedes", name: "Mercedes", color: "#27F4D2", countryCode: "de",
-    logo: logo_mercedes.url,
+    logo: logo_mercedes,
     car: `${F1CDN}/mercedes.png`,
   },
   ferrari: {
     id: "ferrari", name: "Ferrari", color: "#E8002D", countryCode: "it",
-    logo: logo_ferrari.url,
+    logo: logo_ferrari,
     car: `${F1CDN}/ferrari.png`,
   },
   mclaren: {
     id: "mclaren", name: "McLaren", color: "#FF8000", countryCode: "gb",
-    logo: logo_mclaren.url,
+    logo: logo_mclaren,
     car: `${F1CDN}/mclaren.png`,
   },
   red_bull: {
     id: "red_bull", name: "Red Bull", color: "#3671C6", countryCode: "at",
-    logo: logo_red_bull.url,
+    logo: logo_red_bull,
     car: `${F1CDN}/red-bull-racing.png`,
   },
   alpine: {
     id: "alpine", name: "Alpine", color: "#0093CC", countryCode: "fr",
-    logo: logo_alpine.url,
+    logo: logo_alpine,
     car: `${F1CDN}/alpine.png`,
   },
   rb: {
     id: "rb", name: "RB", color: "#6692FF", countryCode: "it",
-    logo: logo_rb.url,
+    logo: logo_rb,
     car: `${F1CDN}/rb.png`,
   },
   haas: {
     id: "haas", name: "Haas", color: "#B6BABD", countryCode: "us",
-    logo: logo_haas.url,
+    logo: logo_haas,
     car: `${F1CDN}/haas.png`,
   },
   williams: {
     id: "williams", name: "Williams", color: "#64C4FF", countryCode: "gb",
-    logo: logo_williams.url,
+    logo: logo_williams,
     car: `${F1CDN}/williams.png`,
   },
   audi: {
     id: "audi", name: "Audi", color: "#00E700", countryCode: "de",
-    logo: logo_audi.url,
-    car: audiCar.url,
+    logo: logo_audi,
+    car: audiCar,
   },
   aston_martin: {
 
     id: "aston_martin", name: "Aston Martin", color: "#229971", countryCode: "gb",
-    logo: logo_aston_martin.url,
+    logo: logo_aston_martin,
     car: `${F1CDN}/aston-martin.png`,
   },
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
-    logo: logo_cadillac.url,
-    car: cadillacCar.url,
+    logo: logo_cadillac,
+    car: cadillacCar,
   },
 };
 
@@ -215,7 +215,7 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   leclerc:        { number: 16, name: "Charles Leclerc", team: "Ferrari", headshot: H("C", "CHALEC01_Charles_Leclerc", "chalec01") },
   hamilton:       { number: 44, name: "Lewis Hamilton", team: "Ferrari", headshot: H("L", "LEWHAM01_Lewis_Hamilton", "lewham01") },
   russell:        { number: 63, name: "George Russell", team: "Mercedes", headshot: H("G", "GEORUS01_George_Russell", "georus01") },
-  antonelli:      { number: 12, name: "Andrea Kimi Antonelli", team: "Mercedes", headshot: driverAntonelli.url },
+  antonelli:      { number: 12, name: "Andrea Kimi Antonelli", team: "Mercedes", headshot: driverAntonelli },
   alonso:         { number: 14, name: "Fernando Alonso", team: "Aston Martin", headshot: H("F", "FERALO01_Fernando_Alonso", "feralo01") },
   stroll:         { number: 18, name: "Lance Stroll", team: "Aston Martin", headshot: H("L", "LANSTR01_Lance_Stroll", "lanstr01") },
   gasly:          { number: 10, name: "Pierre Gasly", team: "Alpine", headshot: H("P", "PIEGAS01_Pierre_Gasly", "piegas01") },
@@ -225,9 +225,9 @@ export const DRIVER_INFO: Record<string, DriverInfo> = {
   ocon:           { number: 31, name: "Esteban Ocon", team: "Haas", headshot: H("E", "ESTOCO01_Esteban_Ocon", "estoco01") },
   bearman:        { number: 87, name: "Oliver Bearman", team: "Haas", headshot: H("O", "OLIBEA01_Oliver_Bearman", "olibea01") },
   lawson:         { number: 30, name: "Liam Lawson", team: "Racing Bulls", headshot: H("L", "LIALAW01_Liam_Lawson", "lialaw01") },
-  arvid_lindblad: { number: 41, name: "Arvid Lindblad", team: "Racing Bulls", headshot: driverLindblad.url },
-  hulkenberg:     { number: 27, name: "Nico Hülkenberg", team: "Audi", headshot: driverHulkenberg.url },
-  bortoleto:      { number: 5, name: "Gabriel Bortoleto", team: "Audi", headshot: driverBortoleto.url },
+  arvid_lindblad: { number: 41, name: "Arvid Lindblad", team: "Racing Bulls", headshot: driverLindblad },
+  hulkenberg:     { number: 27, name: "Nico Hülkenberg", team: "Audi", headshot: driverHulkenberg },
+  bortoleto:      { number: 5, name: "Gabriel Bortoleto", team: "Audi", headshot: driverBortoleto },
   perez:          { number: 11, name: "Sergio Pérez", team: "Cadillac", headshot: H("S", "SERPER01_Sergio_Perez", "serper01") },
   bottas:         { number: 77, name: "Valtteri Bottas", team: "Cadillac", headshot: H("V", "VALBOT01_Valtteri_Bottas", "valbot01") },
 };
