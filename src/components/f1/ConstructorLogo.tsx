@@ -1,19 +1,25 @@
 import { useState } from "react";
 import type { Constructor } from "@/lib/f1-data";
 
+/**
+ * Uniform team logo tile. Every logo asset is pre-normalized to a 512x512
+ * white rounded tile with identical padding, so all teams render at exactly
+ * the same shape and size across the app.
+ */
 export function ConstructorLogo({ c, size = 40 }: { c: Pick<Constructor, "color" | "logo" | "name">; size?: number }) {
   const [errored, setErrored] = useState(false);
   return (
     <div
-      className="relative grid shrink-0 place-items-center overflow-hidden rounded-lg border border-white/10 bg-white/[0.04]"
-      style={{ width: size, height: size, boxShadow: `inset 0 0 0 1px ${c.color}33` }}
+      className="relative shrink-0 overflow-hidden rounded-[22%] ring-1 ring-white/10"
+      style={{ width: size, height: size, boxShadow: `0 2px 10px ${c.color}22` }}
     >
       {c.logo && !errored ? (
         <img
           src={c.logo}
           alt={`${c.name} logo`}
-          style={{ maxWidth: size - 12, maxHeight: size - 12 }}
-          className="object-contain"
+          width={size}
+          height={size}
+          className="h-full w-full object-contain"
           loading="lazy"
           onError={() => setErrored(true)}
         />
