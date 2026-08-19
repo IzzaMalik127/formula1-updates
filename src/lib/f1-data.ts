@@ -1,8 +1,17 @@
 // Live F1 data layer — uses the free Jolpica (Ergast) mirror and official F1 media CDN.
 // All helpers are safe to call from the browser.
 
-import cadillacLogo from "@/assets/cadillac-logo.jpg.asset.json";
-import audiLogo from "@/assets/audi-logo.png.asset.json";
+import logo_alpine from "@/assets/team-alpine-logo.png.asset.json";
+import logo_aston_martin from "@/assets/team-aston_martin-logo.png.asset.json";
+import logo_audi from "@/assets/team-audi-logo.png.asset.json";
+import logo_cadillac from "@/assets/team-cadillac-logo.png.asset.json";
+import logo_ferrari from "@/assets/team-ferrari-logo.png.asset.json";
+import logo_haas from "@/assets/team-haas-logo.png.asset.json";
+import logo_mclaren from "@/assets/team-mclaren-logo.png.asset.json";
+import logo_mercedes from "@/assets/team-mercedes-logo.png.asset.json";
+import logo_rb from "@/assets/team-rb-logo.png.asset.json";
+import logo_red_bull from "@/assets/team-red_bull-logo.png.asset.json";
+import logo_williams from "@/assets/team-williams-logo.png.asset.json";
 import audiCar from "@/assets/audi-car.png.asset.json";
 import cadillacCar from "@/assets/cadillac-car.png.asset.json";
 import driverAntonelli from "@/assets/driver-antonelli.jpg.asset.json";
@@ -101,58 +110,58 @@ const F1CDN = "https://media.formula1.com/content/dam/fom-website/teams/2024";
 export const TEAMS: Record<string, TeamInfo> = {
   mercedes: {
     id: "mercedes", name: "Mercedes", color: "#27F4D2", countryCode: "de",
-    logo: `${F1CDN}/mercedes-logo.png`,
+    logo: logo_mercedes.url,
     car: `${F1CDN}/mercedes.png`,
   },
   ferrari: {
     id: "ferrari", name: "Ferrari", color: "#E8002D", countryCode: "it",
-    logo: `${F1CDN}/ferrari-logo.png`,
+    logo: logo_ferrari.url,
     car: `${F1CDN}/ferrari.png`,
   },
   mclaren: {
     id: "mclaren", name: "McLaren", color: "#FF8000", countryCode: "gb",
-    logo: `${F1CDN}/mclaren-logo.png`,
+    logo: logo_mclaren.url,
     car: `${F1CDN}/mclaren.png`,
   },
   red_bull: {
     id: "red_bull", name: "Red Bull", color: "#3671C6", countryCode: "at",
-    logo: `${F1CDN}/red-bull-racing-logo.png`,
+    logo: logo_red_bull.url,
     car: `${F1CDN}/red-bull-racing.png`,
   },
   alpine: {
     id: "alpine", name: "Alpine", color: "#0093CC", countryCode: "fr",
-    logo: `${F1CDN}/alpine-logo.png`,
+    logo: logo_alpine.url,
     car: `${F1CDN}/alpine.png`,
   },
   rb: {
     id: "rb", name: "RB", color: "#6692FF", countryCode: "it",
-    logo: `${F1CDN}/rb-logo.png`,
+    logo: logo_rb.url,
     car: `${F1CDN}/rb.png`,
   },
   haas: {
     id: "haas", name: "Haas", color: "#B6BABD", countryCode: "us",
-    logo: `${F1CDN}/haas-logo.png`,
+    logo: logo_haas.url,
     car: `${F1CDN}/haas.png`,
   },
   williams: {
     id: "williams", name: "Williams", color: "#64C4FF", countryCode: "gb",
-    logo: `${F1CDN}/williams-logo.png`,
+    logo: logo_williams.url,
     car: `${F1CDN}/williams.png`,
   },
   audi: {
     id: "audi", name: "Audi", color: "#00E700", countryCode: "de",
-    logo: audiLogo.url,
+    logo: logo_audi.url,
     car: audiCar.url,
   },
   aston_martin: {
 
     id: "aston_martin", name: "Aston Martin", color: "#229971", countryCode: "gb",
-    logo: `${F1CDN}/aston-martin-logo.png`,
+    logo: logo_aston_martin.url,
     car: `${F1CDN}/aston-martin.png`,
   },
   cadillac: {
     id: "cadillac", name: "Cadillac", color: "#E5E5E5", countryCode: "us",
-    logo: cadillacLogo.url,
+    logo: logo_cadillac.url,
     car: cadillacCar.url,
   },
 };
