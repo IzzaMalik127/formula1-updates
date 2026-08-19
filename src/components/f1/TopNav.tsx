@@ -83,7 +83,7 @@ export function TopNav() {
         <img
           src={t.logo}
           alt=""
-          className="h-4 w-4 object-contain"
+          className="h-5 w-5 rounded-[22%] object-contain ring-1 ring-white/10"
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
         />
       ),
